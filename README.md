@@ -72,7 +72,8 @@ plt.title("Confusion Matrix")
 plt.show()
 
 ## Output:
-sepal length (cm) sepal width (cm) petal length (cm) petal width (cm) target 0 5.1 3.5 1.4 0.2 0 1 4.9 3.0 1.4 0.2 0 2 4.7 3.2 1.3 0.2 0 3 4.6 3.1 1.5 0.2 0 4 5.0 3.6 1.4 0.2 0 Accuracy: 0.867 Confusion Matrix: [[10 0 0] [ 2 5 2] [ 0 0 11]] image
+sepal length (cm) sepal width (cm) petal length (cm) petal width (cm) target 0 5.1 3.5 1.4 0.2 0 1 4.9 3.0 1.4 0.2 0 2 4.7 3.2 1.3 0.2 0 3 4.6 3.1 1.5 0.2 0 4 5.0 3.6 1.4 0.2 0 Accuracy: 0.867 Confusion Matrix: [[10 0 0] [ 2 5 2] [ 0 0 11]]
+<img width="747" height="583" alt="497569678-17281d94-6d98-422a-842a-3ce683580fd0" src="https://github.com/user-attachments/assets/e0d27c02-1edd-47e5-8318-3e767f29546f" />
 
 
 ## Result:
