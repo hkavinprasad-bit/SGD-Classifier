@@ -16,13 +16,63 @@ To write a program to predict the type of species of the Iris flower using the S
 ```
 /*
 Program to implement the prediction of iris species using SGD Classifier.
-Developed by: 
-RegisterNumber:  
+Developed by:H.Kavin prasad
+RegisterNumber:25017492
 */
 ```
+import pandas as pd
+from sklearn.datasets import load_iris
+from sklearn.linear_model import SGDClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load Iris dataset
+iris = load_iris()
+df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+df['target'] = iris.target
+print(df.head())
+
+# Features and target
+X = df.drop('target', axis=1)
+y = df['target']
+
+# Split into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# Train SGDClassifier
+sgd_clf = SGDClassifier(max_iter=1000, tol=1e-3)
+sgd_clf.fit(X_train, y_train)
+
+# Predict on test set
+y_pred = sgd_clf.predict(X_test)
+
+# Accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Accuracy: {accuracy:.3f}")
+
+# Confusion Matrix
+cm = confusion_matrix(y_test, y_pred)
+print("Confusion Matrix:")
+print(cm)
+
+# Plot confusion matrix
+plt.figure(figsize=(6, 4))
+sns.heatmap(
+    cm, annot=True, cmap="Blues", fmt='d',
+    xticklabels=iris.target_names,
+    yticklabels=iris.target_names
+)
+plt.xlabel("Predicted Label")
+plt.ylabel("True Label")
+plt.title("Confusion Matrix")
+plt.show()
 
 ## Output:
-![prediction of iris species using SGD Classifier](sam.png)
+sepal length (cm) sepal width (cm) petal length (cm) petal width (cm) target 0 5.1 3.5 1.4 0.2 0 1 4.9 3.0 1.4 0.2 0 2 4.7 3.2 1.3 0.2 0 3 4.6 3.1 1.5 0.2 0 4 5.0 3.6 1.4 0.2 0 Accuracy: 0.867 Confusion Matrix: [[10 0 0] [ 2 5 2] [ 0 0 11]] image
 
 
 ## Result:
